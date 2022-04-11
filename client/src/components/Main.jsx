@@ -94,7 +94,8 @@ const Main = (props) => {
                 .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
-        setReset(true)
+        // setReset(true)
+        window.location.reload(false)
     }
 
     const handleForm = (e) => setChoice(e.target.value)
@@ -143,7 +144,12 @@ const Main = (props) => {
                         </tbody>
                     })}
                 </table>
-                {/* {guesses[guesses.length-1].name === answer.name ? 'You Win!' : ''} */}
+                {/* {JSON.stringify(guesses[guesses.length-1])}
+                {JSON.stringify(answer)} */}
+                {guesses.length > 0 ?
+                guesses[guesses.length-1].name === answer.name ? 'You Win!' : '' : ''}
+                {guesses.length >=5 ?
+                guesses[guesses.length-1].name !== answer.name ? 'You lose, try again!' : '' : ''}
             </div>
 
             {/* input div */}
